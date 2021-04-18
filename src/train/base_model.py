@@ -3,12 +3,10 @@
 # author: zhenguo
 # date: 2021.2.26
 
-
-from abc import ABCMeta, abstractmethod
-
 from typing import List
 
-from result_model import TResult
+from abc import ABCMeta, abstractmethod
+from src.train.result_model import TResult
 
 
 class ITrain(metaclass=ABCMeta):
@@ -16,8 +14,8 @@ class ITrain(metaclass=ABCMeta):
     # and these kinds of punctuations
     # BTW： maybe use regular expression
     # TODO: keep maintaining for this object
-    FILTER_WORD = ['<root>', ',', '，', '.', '。', ';', '；', '!', '！', '?', '？',
-                   '\\', '、', '“', '”', '……']
+    # FILTER_WORD = ['<root>', ',', '，', '.', '。', ';', '；', '!', '！', '?', '？',
+    #                '\\', '、', '“', '”', '……']
 
     @abstractmethod
     def load_data(self) -> str:

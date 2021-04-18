@@ -35,11 +35,17 @@
                         {% endfor %}
                         {% endif %}
                     </ul>
+                    <br/> <br/>
+                    <input class="btn btn-primary" type="button" value="return to previous page" onclick="goBack()">
                 </div>
             </div>
         </div>
         <br /><br />
     </div>
 </div>
-
+<script>
+function goBack() {
+  window.history.back()
+}
+</script>
 {% endblock %}

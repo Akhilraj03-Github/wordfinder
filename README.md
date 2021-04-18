@@ -196,22 +196,34 @@ Sprint #3 planning
 - 1 methods to get corpus for many languages
     - 1.1 wikipedia : language abbreviation: https://zh.wikipedia.org/wiki/ISO_639-1
     - 1.2 how to get via wikipedia https://jdhao.github.io/2019/01/10/two_chinese_corpus/
-        
+      
 2. database, tables structures
     - current tables structure
     - wordpos table and sentence table
     
     updating and cleaning the database all the time
     
-3. add cluster function by word2vec
-   the gensim library can do it
+3. add cluster function by word2vec 
+   the gensim library can do it @Zhen Guo
 
-4. web interfaces update
+4. on web interfaces we should add the show for cluster task @Zhen Guo
 
-5. add logging
+5. add logging for every key step
 
-6. test task, cleaning the database
+6. test task, cleaning the database @Willie @Haris 
 
 7. deploy to hopper.slu.edu
 
 8. alpha version release
+
+9. we can discuss all following or add items following doesn't contains. 
+
+1. review codes we have pushed to the base github repo @all
+2. with models we had train more languages, train_model. py to database, cluster_model. py to get word2vec model(it doesn't need to store database so everyone can do it)@all
+3. test every py module and welcome to commit bugs we everyone find @all
+4. with logging module add logs before and after important events @all
+
+# Customer Requirements:
+1. Show the keyword highlighted in the output.
+2. Show all the keywords output in the middle of the page.
+3. Changing the cluster method to show the precise keyword output.

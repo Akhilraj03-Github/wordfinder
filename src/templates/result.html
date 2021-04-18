@@ -30,6 +30,7 @@
             <div class="alert alert-dismissible alert-light my-sm-2">
                 Furthermore, you can also enter the number of cluster to get example sentences
                 <form class="form-inline my-2" action="/cluster" method="post">
+                    <input class="form-control" type="text" id="languageName1" name="languageName" value={{input_data.language_name}} hidden="true">
                     <input class="form-control" type="text" placeholder="the number of cluster" id="clusterNumber" name="clusterNumber">
                     <button class="btn btn-primary" type="submit">Cluster</button>
                     <input id="tagInput1" name = "tagInput1" type="text" hidden="true">
