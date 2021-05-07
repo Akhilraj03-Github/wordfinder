@@ -3,8 +3,8 @@
 {% block body %}
 
 <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
         <div class="form-group">
              <div class="alert alert-dismissible alert-light my-sm-2">
                 <form class="form-inline my-2" action="/find2" method="post">
@@ -17,12 +17,13 @@
             </div>
             <br /><br />
             <div class="alert alert-dismissible alert-light">
-                <h3>Well done!</h3> You successfully find <strong class="text-success" id="tagNumberId1"></strong> part-of-speech.
+                <h3>Well done!</h3> You successfully found <strong class="text-success" id="tagNumberId1"></strong> part-of-speech.
                 <br /><br />
                 Please <strong class="text-success">click</strong> a part-of-speech button following to find example sentences
             </div>
             {% for row_result in input_data.sel_result %}
-            <button type="button" class="btn btn-outline-success mr-sm-2 my-sm-1" id={{row_result.1}} onclick="findByTag({{row_result.2}},{{row_result.1}})">{{row_result.1}}</button>
+            <button type="button" class="btn btn-outline-success mr-sm-2 my-sm-1" id={{row_result.1}} onclick="findByTag('{{row_result.0}}','{{row_result.1}}',{{row_result.2}}, {{row_result.3}})">{{row_result.1}}</button>
+
             {% endfor %}
         </div>
 

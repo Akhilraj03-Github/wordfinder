@@ -9,3 +9,4 @@ mysql==0.0.2
 mysqlclient==2.0.1
 Werkzeug==1.0.1
 mysql-connector-python
+mysql

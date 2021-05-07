@@ -5,25 +5,46 @@ function init(){
     $('#clusterDiv1').hide();
 }
 
+// find all indexes of selected word(substr) in sentence(str)
+function searchSubStr(str,subStr){
+    var positions = new Array();
+    var pos = str.indexOf(subStr);
+    while(pos>-1){
+        positions.push(pos);
+        pos = str.indexOf(subStr,pos+1);
+    }
+    return positions;
+}
 
-function findByTag(rowResult, tag){
-    selectedTag = tag.textContent;
-    $("#tagInput1").attr("value",selectedTag);
+function findByTag(selWord, tag, rowResult, wordResultKWIC){
+  /*
+    selWord: selected word
+    rowResult: sentences
+    tag: POS
+
+  */
+    $("#tagInput1").attr("value",tag);
     var ulControl = $('#sentencesGroup');
     ulControl.find("li").remove();
-    var rowResult1 = rowResult;
-    if(rowResult1.length > 0){
+    if(wordResultKWIC.length > 0){
         $('#labelId1').show();
         $('#clusterDiv1').show();
     }
-    for(i=1; i<rowResult1.length+1; i++){
-        var ulcontent = "<li class=\"list-group-item d-flex justify-content-between align-items-center\">"
-                      + rowResult1[i-1] +
-                      "<span class=\"badge badge-primary badge-pill\">"+i+"</span>"+"</li>";
-        ulControl.append(ulcontent);
+
+    outstr = '<pre>'
+    for(i=1; i<wordResultKWIC.length+1; i++){
+         outstr += "<li class=\"list-group-item d-flex justify-content-between align-items-center\">" +
+           wordResultKWIC[i-1] +
+           "<span class=\"badge badge-primary badge-pill\">"+ i + "</span>" +
+          "</li>"
+        //outstr += '<br />'
     }
 
+    outstr += '</pre>'
+    ulControl.append(outstr);
 }
+
+
 
 
 

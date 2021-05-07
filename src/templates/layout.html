@@ -20,6 +20,18 @@
                 </div>
             </div>
         </nav>
+        {% block content %}
+        <div class="container">
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning" id="flashId1">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+
+            {% block page_content %}{% endblock %}
+        </div>
+        {% endblock %}
 
         <div class="container pt-4">
         {% block body %}
@@ -28,6 +40,12 @@
         <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
         <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
         <script src="{{url_for('static', filename='js/main.js')}}"></script>
-        s<script src="{{url_for('static', filename='js/result.js')}}"></script>
+        <script src="{{url_for('static', filename='js/result.js')}}"></script>
+        <script>
+            var flaskDiv = document.getElementById("flashId1");
+            setInterval(function() {
+              if (flaskDiv!=null && flaskDiv.style.display == "") { flaskDiv.style.display = "none"; }
+            }, 3000);
+        </script>
     </body>
 </html>

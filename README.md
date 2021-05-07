@@ -129,15 +129,16 @@ HERE we make development plans, dicuss them and pass them. Then we should follow
 
 2/16/2021 - 2/21/2021 TASKS
 
-Sprint 1
+# sprint 1: planning
+
 1. Develop UI in any language 
 2. Obtain Corpus 
 3. Clean the Corpus(Tokenization, lemmatization and stemming)
 4. Tag the data according the POS
 
 
-
-Sprint 2
+### -------------------------------------------------
+# sprint 2: planning
 
 Discussion list:
 
@@ -154,7 +155,6 @@ Discussion list:
 ![big task steps](assets/big-task-1.png)
 
 
-
 ### Done list:
  User interface
  English corpora
@@ -167,12 +167,12 @@ Discussion list:
 
 ### mysql
 
-# view all tables of a database, here called mysql database
+### view all tables of a database, here called mysql database
 
 select table_name from information_schema.tables where table_schema='mysql';
 
 
-### sprint 2: review
+# sprint 2: review
 
 new features:
 
@@ -191,8 +191,8 @@ unfinished features:
 1. corpus for many other languages
 2. cluster 
 
-
-Sprint #3 planning
+### -------------------------------------------------
+# sprint 3: planning
 - 1 methods to get corpus for many languages
     - 1.1 wikipedia : language abbreviation: https://zh.wikipedia.org/wiki/ISO_639-1
     - 1.2 how to get via wikipedia https://jdhao.github.io/2019/01/10/two_chinese_corpus/
@@ -216,14 +216,90 @@ Sprint #3 planning
 
 8. alpha version release
 
-9. we can discuss all following or add items following doesn't contains. 
+### before beta version
+
+Right now I found our repository has a problem considerable us to pay enough attention. Everyone has an individual file path and they are different from each other, 
+
+such as file path of train corpus, the file path of cluster model, the file path of database config. These file paths cannot be pushed to our base repository! 
+
+We should think of a nice way to solve this issue. And I have an idea. We should maintain a common file relative path and all data files and config data should be put inside it. Also, there's another important thing to remember: don't push these corpus and pre-train models to our base repository. We should maintain a common remote disk to store and then open and share a link to provide everyone in our group to use.
+
+I have created a file named input, there are three files inside it: corpus, udpipemodel, and word2vecmodel. All files in them are hosted at 
+
+download: https://pan.baidu.com/s/14RzwuGjTZwsUhiyVSe-Pgg 
+password: td3e
+
+downloading them and put them on root directory of wordfiner folder
+
+
+### Features
+
+Beta version supports features:
+
+1. Support query in 10 + languages
+2. Support to select a certain language, input corresponding words, and display multiple parts of speech of words
+3. Click a part of speech of the word to be looked up to show all the corresponding examples
+4. Use KWIC to show examples
+5. Support to input different number of clusters
+6. Click cluster sentences to get examples containing words
+7. Examples showing all words are supported
+
+
+
+Update features:
+
+1. KWIC, in the middle of the line
+
+2. now only show part sentence, it's better to show the whole sentence when click.
+
+   <a href="">a point on the bank hidden by brush where </a>
+
+3. in cluster web interface, we should group the sentences as cluster labels, sorting.
+
+4. .gitignore files 
+
+5. French clustering 3: 
+
+   ValueError: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)
+
+   Chinese
+
+6.  there are bugs of cluster function
+
+### -------------------------------------------------
+# sprint 4: planning
+
+review codes we have pushed to the base github repo @all
+with models we had train more languages, train_model. py to database, cluster_model. py to get word2vec model(it doesn't need to store database so everyone can do it)@all
+test every py module and welcome to commit bugs we everyone find @all
+with logging module add logs before and after important events @all
+Time complexity for this task is a needed issue for us to consider.
+
+1. DATABASE
+    1. create accesible db for everyone
+        - Will have to change util.py to connect to new db
+    2. check the ouput for application
+    3. Also we need to train more languages.
+    4. Add more text files
+
+2. KWIC
+    1. we should highlight the selected word in each sentence 
+    2. Check the length of words on each side of selected word
+    3. sentence by sentence
+
+3. CLUSTERING
+    1. We should adjust our cluster algorithms
+    2. Apply various algorithms to our cluster_model.py.
+    3. Cluster after user search word
+        - For example, if we select the word excellent, then find a sentence such as: He was an excellent journalist and a very fine man, after the cluster, we expect to get the sentence like he is a very good man.
+    5. Also need to set a default k value...
+        - Elbow Method 
+        - will try to determine default k based on length of characters in selected 
+    6. Evaluate quality of cluster
+
+KWIC
 
 1. review codes we have pushed to the base github repo @all
 2. with models we had train more languages, train_model. py to database, cluster_model. py to get word2vec model(it doesn't need to store database so everyone can do it)@all
 3. test every py module and welcome to commit bugs we everyone find @all
 4. with logging module add logs before and after important events @all
-
-# Customer Requirements:
-1. Show the keyword highlighted in the output.
-2. Show all the keywords output in the middle of the page.
-3. Changing the cluster method to show the precise keyword output.

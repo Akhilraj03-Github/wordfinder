@@ -1,5 +1,5 @@
 # this module is mainly used to be base class for train
-# supporting the base interfaces for train model.
+# supporting the base interfaces for train udpipemodel.
 # author: zhenguo
 # date: 2021.2.26
 
@@ -54,10 +54,10 @@ class ITrain(metaclass=ABCMeta):
 
         After loading one sentence with specific :param{language_name}, it's likely
         that calling self.clean_data method does the clean to this sentence. Then,
-        by loading pre-train model with specific :param{language_name}, we get each
+        by loading pre-train udpipemodel with specific :param{language_name}, we get each
         word and word's POS of this sentence.
 
-        The result for this sentence would cache to TResult model we define,
+        The result for this sentence would cache to TResult udpipemodel we define,
         then appennding a list. Finally, ruturn this list.
 
         :return: t
